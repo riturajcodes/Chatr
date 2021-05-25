@@ -1,6 +1,6 @@
 # Chatr
 
-###Technologies: EJS, CSS, NODE JS, EXPRESS JS, SOCKET.IO
+### Technologies: EJS, CSS, NODE JS, EXPRESS JS, SOCKET.IO
 
 How the Login Page looks Like: 
 
