@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  color: rgb(235, 235, 235);
+  background-color: #121212;
+}
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #2979ff;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+}
+.click-to-copy {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  background-color: #0d66ff;
+}
+#messageContainer {
+  margin: 70px 20px;
+}
+#form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  box-sizing: border-box;
+  height: 50px;
+}
+#input {
+  border: 1px solid #999;
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 20px;
+}
+#input:focus {
+  outline: none;
+}
+#form > button {
+  padding: 10px 30px;
+  background: #2979ff;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.message {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.left {
+  float: left;
+  clear: both;
+  background-color: #999;
+}
+.right {
+  float: right;
+  clear: both;
+  background-color: #2979ff;
+}
+.message:last-child {
+  margin-bottom: 100px;
+}
+#share-modal {
+  position: fixed;
+  z-index: 200;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: #202020;
+  padding: 30px;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  max-width: 95%;
+  display: none;
+}
+.modal-heading {
+  font-size: 25px;
+  font-weight: 500;
+}
+#modal-link {
+  margin: 20px 0px;
+  max-width: 100%;
+  background-color: #121212;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: auto;
+}
+#close-modal {
+  position: absolute;
+  right: 30px;
+  font-size: 30px;
+}

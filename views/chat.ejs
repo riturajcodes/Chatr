@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ============================================== -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- ============================================== -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../public/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../public/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../public/images/favicon-16x16.png"
+    />
+    <!-- ============================================== -->
+    <link rel="stylesheet" href="../public/styles/chat.css" />
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      const ROOM_ID = "<%=roomId%>";
+      const ACTUAL_ROOM_ID = `room/${ROOM_ID}`;
+    </script>
+    <!-- ============================================== -->
+    <title>Chatr</title>
+  </head>
+  <body>
+    <!-- ============================================== -->
+    <audio id="sound" src="../public/sounds/message_received.mp3"></audio>
+    <header class="nav">
+      <div class="logo">Chatr</div>
+      <div class="click-to-copy" id="copyBtn">
+        SHARE LINK <i class="bx bxs-copy"></i>
+      </div>
+    </header>
+    <main id="messageContainer"></main>
+    <form id="form" action="">
+      <input
+        placeholder="Start Typing ..."
+        id="input"
+        autocomplete="off"
+      /><button id="sendBtn">Send</button>
+    </form>
+    <!-- ============================================== -->
+    <div id="share-modal">
+      <div id="close-modal">
+        <i class="bx bx-window-close"></i>
+      </div>
+      <div class="modal-heading">How To Share</div>
+      Copy The following link and send it to your friends.
+      <p id="modal-link"></p>
+    </div>
+    <script>
+      let pageUrl = window.location.href;
+      document.getElementById("modal-link").innerText = pageUrl;
+      let title = "Join the Chat on Chatr";
+      //   modal
+      let sharemodal = document.getElementById("share-modal");
+      let shareBtn = document.getElementById("copyBtn");
+      let closeBtn = document.getElementById("close-modal");
+      shareBtn.addEventListener("click", () => {
+        if (navigator.share) {
+          navigator.share({
+            title: `${title}`,
+            url: `${pageUrl}`,
+          });
+        } else {
+          sharemodal.style.display = "block";
+        }
+      });
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io("/");
+      console.log(ACTUAL_ROOM_ID);
+
+      // socket io code
+      socket.emit("join-room", ACTUAL_ROOM_ID, 10);
+
+      socket.on("user-connected", (userId) => {
+        console.log("user connected: " + userId);
+      });
+
+      var messages = document.getElementById("messageContainer");
+      var form = document.getElementById("form");
+      var input = document.getElementById("input");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit("chat message", input.value);
+          input.value = "";
+        }
+      });
+
+      socket.on("chat message", function (msg) {
+        var item = document.createElement("div");
+        item.textContent = msg;
+        item.classList.add("left");
+        item.classList.add("message");
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+      // socket io code
+
+      let sendBtn = document.getElementById("sendBtn");
+      sendBtn.addEventListener("click", () => {
+        if (input.value != "") {
+          var item = document.createElement("div");
+          item.innerText = input.value;
+          item.classList.add("right");
+          item.classList.add("message");
+          messages.appendChild(item);
+          window.scrollTo(0, document.body.scrollHeight);
+          let sound = document.getElementById("sound");
+          sound.play();
+        }
+      });
+    </script>
+  </body>
+</html>
