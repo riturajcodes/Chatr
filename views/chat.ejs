@@ -6,40 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- ============================================== -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../public/images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../public/images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../public/images/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <!-- ============================================== -->
-    <link rel="stylesheet" href="../public/styles/chat.css" />
-    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link rel="stylesheet" href="chat.css" />
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <script>
-      const ROOM_ID = "<%=roomId%>";
-      const ACTUAL_ROOM_ID = `room/${ROOM_ID}`;
-    </script>
+
     <!-- ============================================== -->
     <title>Chatr</title>
   </head>
   <body>
     <!-- ============================================== -->
-    <audio id="sound" src="../public/sounds/message_received.mp3"></audio>
+    <audio id="sound" src="message_received.mp3"></audio>
     <header class="nav">
       <div class="logo">Chatr</div>
       <div class="click-to-copy" id="copyBtn">
@@ -86,10 +68,9 @@
 
     <script>
       var socket = io("/");
-      console.log(ACTUAL_ROOM_ID);
 
       // socket io code
-      socket.emit("join-room", ACTUAL_ROOM_ID, 10);
+      socket.emit("join-room", 10);
 
       socket.on("user-connected", (userId) => {
         console.log("user connected: " + userId);
