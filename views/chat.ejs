@@ -53,6 +53,9 @@
       let sharemodal = document.getElementById("share-modal");
       let shareBtn = document.getElementById("copyBtn");
       let closeBtn = document.getElementById("close-modal");
+      closeBtn.addEventListener("click", () => {
+        sharemodal.style.display = "none";
+      });
       shareBtn.addEventListener("click", () => {
         if (navigator.share) {
           navigator.share({
