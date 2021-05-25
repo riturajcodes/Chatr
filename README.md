@@ -1,5 +1,5 @@
 # Chatr
-
+## LIVE SITE: [CLICK HERE](https://chatr-rc.herokuapp.com/)
 ### Technologies: EJS, CSS, NODE JS, EXPRESS JS, SOCKET.IO
 
 How the Login Page looks Like: 
