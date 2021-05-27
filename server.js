@@ -19,7 +19,7 @@ app.get("/start", (req, res) => {
 app.get("/room", (req, res) => {
   res.redirect(`/room/${uuidv4()}`);
 });
-app.get(`/room/:roomId`, (req, res) => {
+app.get("/room/:roomId", (req, res) => {
   res.render("chat", { roomId: `/room/${req.params.roomId}` });
 });
 
