@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- 
+      Rituraj Codes
+     -->
     <!-- ============================================== -->
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="A chat application developed by riturajcodes"
+      content="A Freemium Chat app developed by Rituraj Codes"
     />
     <meta
       name="keywords"
-      content="chatapp, online, safe, noregistration, nologin"
+      content="chat app, riturajcodes, node.js, socket.io, express.js"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,46 +20,118 @@
     <meta name="author" content="Rituraj Datta" />
     <meta name="robots" content="index, follow" />
     <!-- ============================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
     <!-- ============================================== -->
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="https://chatr-rc.herokuapp.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Chatr" />
     <meta
       property="og:description"
-      content="a premium chat app by riturajcodes"
+      content="A Freemium Chat app developed by Rituraj Codes"
     />
+    <meta property="og:image" content="images/android-chrome-192x192.png" />
     <!-- ============================================== -->
+    <link rel="stylesheet" href="css/index.css" />
     <!-- ============================================== -->
-    <link rel="stylesheet" href="index.css" />
-    <!-- ============================================== -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Chatr</title>
   </head>
   <body>
     <!-- ============================================== -->
-    <div class="join">
-      <main class="join-container">
-        <h1 class="heading">Join Chat</h1>
-        <div>
-          <a href="/room" class="create-room-btn">CREATE CHAT ROOM</a>
+    <nav class="navbar">
+      <div class="nav__toggle"><i class="bx bx-menu"></i> MENU</div>
+      <div class="logo">
+        <a href="/">CR</a>
+      </div>
+      <div class="nav__started">
+        <a href="/start"> <i class="bx bx-mail-send"></i> START </a>
+      </div>
+    </nav>
+    <aside class="nav-overlay"></aside>
+    <header class="home">
+      <div class="home__overlay">
+        <center>
+          <h1 class="home__text">GROUP CHAT REIMAGINED</h1>
+          <a href="/start" id="redirect-to-login">GET STARTED</a>
+        </center>
+      </div>
+    </header>
+    <main>
+      <section class="instructions">
+        <h2>Instructions</h2>
+        <ul>
+          <li>
+            Click the GET STARTED button to get redirected to the Create Chat
+            Room
+          </li>
+          <li>
+            Click on the CREATE CHAT ROOM button to get to start a new group
+          </li>
+          <li>Click on the Share Link and copy the url of the chat room</li>
+          <li>Send your friends the url</li>
+          <li>Let them join the chat</li>
+          <li>Chat smoothly</li>
+          NOTE :
+          <li>
+            The chats are not monitored. It's absolutely up to you how you
+            behave with the other users.
+          </li>
+          <li>
+            You are totally safe unless you share the link with a wrong person.
+          </li>
+          <li>Your chats are not stored</li>
+        </ul>
+      </section>
+      <section class="features">
+        <div class="card">
+          <i class="fa fa-shield"></i>
+          <br />
+          Safe
         </div>
-        <span class="agreement">
-          By Tapping Create Chat Room you agree to our
-          <a href="#">Terms and Conditions</a>
-        </span>
-      </main>
-    </div>
-    <footer class="footer">
-      <div class="links">
-        <a href="#">About</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms and Conditions</a>
-      </div>
-      <div class="credit">
-        <a href="#">Developed by @riturajcodes</a>
-      </div>
+        <div class="card">
+          <i class="fa fa-diamond"></i>
+          <br />
+          Premium
+        </div>
+        <div class="card">
+          <i class="fa fa-globe"></i>
+          <br />
+          Global
+        </div>
+        <div class="card">
+          <i class="fa fa-cog"></i>
+          <br />
+          Support
+        </div>
+      </section>
+    </main>
+    <footer>
+      <center>
+        <div class="credits">&copy; RITURAJCODES 2021</div>
+      </center>
     </footer>
     <!-- ============================================== -->
   </body>
