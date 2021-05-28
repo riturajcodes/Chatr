@@ -1,6 +1,5 @@
 var socket = io("/");
 // socket io code
-
 let messages = document.getElementById("messageContainer");
 let form = document.getElementById("form");
 let input = document.getElementById("input");
